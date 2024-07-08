@@ -53,7 +53,7 @@ const MonteCarloPiSimulator = () => {
     
     let points = currentPoints;
     let inside = insideCircle;
-    let interval = 50;
+    let interval = 25;
 
     const step = () => {
       if (points >= totalPoints) {
@@ -97,8 +97,8 @@ const MonteCarloPiSimulator = () => {
       setEstimatedPi(piEstimate);
       setDifference((Math.abs(Math.PI - piEstimate) / Math.PI) * 100);
 
-      if (points > totalPoints / 2) {
-        interval = 0.1;
+      if (points > totalPoints / 4) {
+        interval = 0.05;
       }
 
       animationRef.current = setTimeout(() => requestAnimationFrame(step), interval);
