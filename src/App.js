@@ -89,7 +89,7 @@ const MonteCarloPiSimulator = () => {
         points++;
       }
 
-      const piEstimate = isFullCircle ? (4 * inside) / points : (2 * inside) / points;
+      const piEstimate = isFullCircle ? (4 * inside) / points : (4 * inside) / points;
       setCurrentPoints(points);
       setInsideCircle(inside);
       setOutsideCircle(points - inside);
@@ -214,7 +214,7 @@ const MonteCarloPiSimulator = () => {
             className="border rounded px-2 py-1 disabled:bg-gray-300 disabled:text-gray-600"
           >
             <option value="full">整圓</option>
-            <option value="half">半圓</option>
+            <option value="half">1/4圓</option>
           </select>
         </div>
         <button
