@@ -97,7 +97,7 @@ const MonteCarloPiSimulator = () => {
       setEstimatedPi(piEstimate);
       setDifference((Math.abs(Math.PI - piEstimate) / Math.PI) * 100);
 
-      if (points > totalPoints / 4) {
+      if (points > totalPoints / 10) {
         interval = 0.05;
       }
 
