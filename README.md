@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# 蒙地卡羅方法 π 值模擬器
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+這是一個以「蒙地卡羅方法」為基礎的π值模擬器的README文件，旨在幫助學生理解如何透過隨機抽樣來估計圓周率π。這個模擬器不僅提供一個直觀的可視化界面，還能讓學生透過互動操作來深入了解概率和統計的基本概念。
 
-## Available Scripts
+## 功能介紹
 
-In the project directory, you can run:
+1. **互動式模擬**: 學生可以啟動或暫停模擬，觀察隨機點如何影響對π的估算。
+2. **自訂模擬次數**: 允許學生根據需要選擇模擬的總點數，從預設的數值到自定義數量。
+3. **統計結果顯示**: 模擬結果會實時顯示圓內外的點數，並計算出估算的π值及其誤差。
+4. **可視化反饋**: 透過顏色區分圓內外的點，增加了視覺效果，讓統計結果一目了然。
+5. **響應式設計**: 適應不同尺寸的屏幕，無論在桌面還是移動設備上都能流暢使用。
 
-### `npm start`
+## 使用方法
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **選擇模擬點數**:
+   - 從下拉菜單選擇一個點數選項，或選擇“來個刺激的”自定義點數。
+   - 若選擇自定義，請輸入希望模擬的點數，然後點擊確認。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **開始/暫停模擬**:
+   - 點擊“開始模擬”開始新的模擬，或在模擬進行中使用“暫停模擬”和“繼續模擬”控制進程。
+   - 模擬完成後可以查看統計數據，或點擊“重新模擬”重置數據並開始新一輪模擬。
 
-### `npm test`
+3. **觀察結果**:
+   - 留意模擬過程中點的顏色變化，圓內點為一種顏色，圓外點為另一種。
+   - 查看下方的統計數據，了解圓內外點的分布和估算的π值及其誤差。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 蒙地卡羅方法原理
 
-### `npm run build`
+蒙地卡羅方法是一種隨機抽樣技術，用於透過重複實驗估計數學常數或解決數學問題。在這個模擬器中，我們使用蒙地卡羅方法來估計π值。方法如下：
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. 在一個正方形內繪製一個內接圓。
+2. 隨機生成點並檢查這些點是否落在圓內。
+3. 根據落在圓內的點的比例來估計圓的面積，進而估計π值。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+希望這個模擬器能夠幫助學生更好地理解蒙地卡羅方法和圓周率的計算！
