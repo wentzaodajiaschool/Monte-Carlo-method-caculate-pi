@@ -52,7 +52,7 @@ const MonteCarloPiSimulator = () => {
     
     let points = currentPoints;
     let inside = insideCircle;
-    let interval = 10;
+    let interval = 50;
 
     const step = () => {
       if (points >= totalPoints) {
@@ -100,7 +100,7 @@ const MonteCarloPiSimulator = () => {
         interval = 0.1;
       }
 
-      animationRef.current = requestAnimationFrame(step);
+      animationRef.current = setTimeout(() => requestAnimationFrame(step), interval);
     };
 
     step();
@@ -108,18 +108,13 @@ const MonteCarloPiSimulator = () => {
 
   useEffect(() => {
     if (isRunning) {
-      animate();
+      simulate();
     } else {
-      cancelAnimationFrame(animationRef.current);
+      clearTimeout(animationRef.current);
     }
 
-    return () => cancelAnimationFrame(animationRef.current);
+    return () => clearTimeout(animationRef.current);
   }, [isRunning]);
-
-  const animate = () => {
-    cancelAnimationFrame(animationRef.current);
-    animationRef.current = requestAnimationFrame(simulate);
-  };
 
   const toggleSimulation = () => {
     if (isSimulationCompleted) {
@@ -161,6 +156,7 @@ const MonteCarloPiSimulator = () => {
     if (!isNaN(customValue) && customValue > 0) {
       setTotalPoints(customValue);
       setShowCustomInput(false);
+      setCustomPointsInput('');
     } else {
       alert('請輸入有效的正整數！');
     }
@@ -169,11 +165,11 @@ const MonteCarloPiSimulator = () => {
   return (
     <div className="flex flex-col items-center p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4 text-center">文藻美語程式設計課<br/>蒙地卡羅方法 π 值模擬器</h1>
-      <div className="mb-4 flex flex-wrap items-center justify-center gap-2">
-        <div className="flex items-center">
+      <div className="mb-4 flex flex-wrap items-center justify-center gap-2 relative overflow-hidden w-full h-12">
+        <div className={`flex items-center justify-center transition-transform duration-300 ${showCustomInput ? '-translate-x-full' : 'translate-x-0'} w-full absolute`}>
           <label className="mr-2">總點數：</label>
           <select
-            value={showCustomInput ? 'custom' : totalPoints}
+            value={totalPoints}
             onChange={handleTotalPointsChange}
             disabled={isSimulationStarted}
             className="border rounded px-2 py-1 disabled:bg-gray-300 disabled:text-gray-600"
@@ -181,26 +177,31 @@ const MonteCarloPiSimulator = () => {
             <option value="10000">10000</option>
             <option value="20000">20000</option>
             <option value="30000">30000</option>
+            {totalPoints !== 10000 && totalPoints !== 20000 && totalPoints !== 30000 && (
+              <option value={totalPoints}>{totalPoints}</option>
+            )}
             <option value="custom">來個刺激的</option>
           </select>
         </div>
-        {showCustomInput && (
-          <div className="flex items-center">
-            <input
-              type="number"
-              value={customPointsInput}
-              onChange={(e) => setCustomPointsInput(e.target.value)}
-              className="border rounded px-2 py-1 w-24 mr-2"
-              placeholder="輸入點數"
-            />
-            <button
-              onClick={handleCustomPointsSubmit}
-              className="bg-green-500 text-white px-2 py-1 rounded"
-            >
-              確定
-            </button>
-          </div>
-        )}
+        <div className={`absolute left-full flex items-center justify-center transition-transform duration-300 ${showCustomInput ? '-translate-x-full' : 'translate-x-0'} w-full`}>
+          <input
+            type="number"
+            value={customPointsInput}
+            onChange={(e) => setCustomPointsInput(e.target.value)}
+            className="border rounded px-2 py-1 w-40 mr-2"
+            placeholder="輸入點數"
+          />
+          <button
+            onClick={handleCustomPointsSubmit}
+            className="bg-green-500 text-white px-3 py-1 rounded flex items-center justify-center"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div className="mb-4 flex flex-wrap items-center justify-center gap-2">
         <div className="flex items-center">
           <label className="mr-2">形狀：</label>
           <select
