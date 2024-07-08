@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/monte-carlo-pi-simulator/static/css/main.28837378.css",
-    "main.js": "/monte-carlo-pi-simulator/static/js/main.d0f151f7.js",
+    "main.js": "/monte-carlo-pi-simulator/static/js/main.3fb7048f.js",
     "static/js/453.18118a71.chunk.js": "/monte-carlo-pi-simulator/static/js/453.18118a71.chunk.js",
     "index.html": "/monte-carlo-pi-simulator/index.html",
     "main.28837378.css.map": "/monte-carlo-pi-simulator/static/css/main.28837378.css.map",
-    "main.d0f151f7.js.map": "/monte-carlo-pi-simulator/static/js/main.d0f151f7.js.map",
+    "main.3fb7048f.js.map": "/monte-carlo-pi-simulator/static/js/main.3fb7048f.js.map",
     "453.18118a71.chunk.js.map": "/monte-carlo-pi-simulator/static/js/453.18118a71.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.28837378.css",
-    "static/js/main.d0f151f7.js"
+    "static/js/main.3fb7048f.js"
   ]
 }
