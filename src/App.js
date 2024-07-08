@@ -22,6 +22,7 @@ const MonteCarloPiSimulator = () => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const resultRef = useRef(null);
+  const containerRef = useRef(null);
 
   const drawCircle = () => {
     const canvas = canvasRef.current;
@@ -52,13 +53,13 @@ const MonteCarloPiSimulator = () => {
     
     let points = currentPoints;
     let inside = insideCircle;
-    let interval = 25;
+    let interval = 50;
 
     const step = () => {
       if (points >= totalPoints) {
         setIsRunning(false);
         setIsSimulationCompleted(true);
-        resultRef.current.scrollIntoView({ behavior: 'smooth' });
+        containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
         return;
       }
 
@@ -89,7 +90,7 @@ const MonteCarloPiSimulator = () => {
         points++;
       }
 
-      const piEstimate = isFullCircle ? (4 * inside) / points : (4 * inside) / points;
+      const piEstimate = (4 * inside) / points;
       setCurrentPoints(points);
       setInsideCircle(inside);
       setOutsideCircle(points - inside);
@@ -97,7 +98,7 @@ const MonteCarloPiSimulator = () => {
       setDifference((Math.abs(Math.PI - piEstimate) / Math.PI) * 100);
 
       if (points > totalPoints / 2) {
-        interval = 0.05;
+        interval = 0.1;
       }
 
       animationRef.current = setTimeout(() => requestAnimationFrame(step), interval);
@@ -118,7 +119,7 @@ const MonteCarloPiSimulator = () => {
 
   const toggleSimulation = () => {
     if (isSimulationCompleted) {
-      resultRef.current.scrollIntoView({ behavior: 'smooth' });
+      containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     } else if (!isSimulationStarted) {
       setIsSimulationStarted(true);
       setIsRunning(true);
@@ -163,7 +164,7 @@ const MonteCarloPiSimulator = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-4 max-w-md mx-auto">
+    <div ref={containerRef} className="flex flex-col items-center p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4 text-center">文藻美語程式設計課<br/>蒙地卡羅方法 π 值模擬器</h1>
       <div className="mb-4 flex flex-wrap items-center justify-center gap-2 relative overflow-hidden w-full h-12">
         <div className={`flex items-center justify-center transition-transform duration-300 ${showCustomInput ? '-translate-x-full' : 'translate-x-0'} w-full absolute`}>
