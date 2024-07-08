@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/monte-carlo-pi-simulator/static/css/main.28837378.css",
-    "main.js": "/monte-carlo-pi-simulator/static/js/main.fa7f4c48.js",
+    "main.css": "/monte-carlo-pi-simulator/static/css/main.1d8522dd.css",
+    "main.js": "/monte-carlo-pi-simulator/static/js/main.cbd0a75c.js",
     "static/js/453.18118a71.chunk.js": "/monte-carlo-pi-simulator/static/js/453.18118a71.chunk.js",
     "index.html": "/monte-carlo-pi-simulator/index.html",
-    "main.28837378.css.map": "/monte-carlo-pi-simulator/static/css/main.28837378.css.map",
-    "main.fa7f4c48.js.map": "/monte-carlo-pi-simulator/static/js/main.fa7f4c48.js.map",
+    "main.1d8522dd.css.map": "/monte-carlo-pi-simulator/static/css/main.1d8522dd.css.map",
+    "main.cbd0a75c.js.map": "/monte-carlo-pi-simulator/static/js/main.cbd0a75c.js.map",
     "453.18118a71.chunk.js.map": "/monte-carlo-pi-simulator/static/js/453.18118a71.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.28837378.css",
-    "static/js/main.fa7f4c48.js"
+    "static/css/main.1d8522dd.css",
+    "static/js/main.cbd0a75c.js"
   ]
 }
